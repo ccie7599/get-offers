@@ -4,7 +4,7 @@
   "description": "A service that caches NATS offers and serves them via HTTP",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node get-offers.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
