@@ -1,19 +1,23 @@
-{
-  "name": "offer-cacher",
-  "version": "1.0.0",
-  "description": "A service that caches NATS offers and serves them via HTTP",
-  "main": "index.js",
-  "scripts": {
-    "start": "node get-offers.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "nats": "^1.19.0"
-  },
-  "engines": {
-    "node": ">=16"
-  },
-  "author": "",
-  "license": "MIT"
-}
+# Use an official Node.js runtime as the base image
+FROM node:20-slim
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json first for caching layer
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the application code
+COPY . .
+
+# Create the data directory inside the container
+RUN mkdir -p /tmp/data
+
+# Expose the HTTP port
+EXPOSE 3001
+
+# Define the default command
+CMD ["node", "get-offers.js"]
