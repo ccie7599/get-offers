@@ -1,0 +1,19 @@
+{
+  "name": "offer-cacher",
+  "version": "1.0.0",
+  "description": "A service that caches NATS offers and serves them via HTTP",
+  "main": "index.js",
+  "scripts": {
+    "start": "node get-offers.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nats": "^1.19.0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "author": "",
+  "license": "MIT"
+}
